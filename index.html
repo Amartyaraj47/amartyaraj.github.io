@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo">Amartyaraj Kumar</div> 
+        <div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#publications">Publications & Patents</a></li>
+                <li><a href="#contact">Contact</a></li>
+                
+            </ul> 
+        </div>
+    </nav>
+    <nav id="hamburger-nav">
+        <div class="logo">Amartyaraj Kumar</div> 
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="togglemenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#publications">Publications & Patents</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </div>
+        </div>
+    </nav>
+    <section id="profile">
+        <div class="section__pic-container">
+            <img src="./assets/dp.png" alt="Amartyaraj Kumar prfile picture">
+        </div>
+        <div class="section__text">
+            <p class="section__text__p1">Hello, I'm</p>
+            <h1 class="title1"> Amartyaraj Kumar</h1>
+            <p class="section__text__p2">Welcome to my website</p>
+            <div class="btn-container">
+                <button class="btn btn-color-2" onclick="window.open('./assets/CV_JRF_Mitradip_Sir.pdf')">
+                    Download CV
+                </button>
+                <button class="btn btn-color-1" onclick="location.href'./#contact'">
+                    Contact Info
+                </button>
+            </div>
+            <div id="social-container">
+                <img src="./assets/linkedin.png" alt="My LinkedIn Profile" class="icon" onclick="location.href = 'https://www.linkedin.com/in/amartyaraj-kumar-876900191/'">
+                <img src="./assets/orcid.png" alt="My Orcid Profile" class="icon" onclick="location.href = 'https://orcid.org/0009-0007-9062-6224'">
+                <img src="./assets/gscholar.png" alt="My Google Scholar Profile" class="icon" onclick="location.href = 'https://scholar.google.com/citations?user=DZ2OdWEAAAAJ&hl=en'">
+                <img src="./assets/github.png" alt="My Github Profile" class="icon" onclick="location.href = 'https://github.com/Amartyaraj47'">
+            </div>
+        </div>
+        <!-- <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#academics'"> -->
+    </section>
+    <section id="academics">
+        <p class="section__text__p1">So far</p>
+        <h1 class="title">My Academic Journey</h1>
+        <!-- <div class="section-container">
+             <div class="section__pic-container">
+                <img src="./assets/about.jpg" alt="Profile picture" class="about-pic">
+            </div> --> 
+            <div class="about-details-container">
+                <div class="about-container1">
+                    <div class="details-container">
+                        <img src="./assets/grad.png" alt="Graduation icon" class="icon">
+                        <h3>Int BSMS <span class="medal-font">(Proficiency Medal)</span></h3>
+                        <p class="tenure">2019 - 2024</p>
+                        <p>Electrical Engineering & Computer Science</p>
+                        <p>Indian Institute of Science Education and Research Bhopal, India</p>
+                    </div>
+
+                    <div class="details-container">
+                        <img src="./assets/experience.png" alt="Experience icon" class="icon">
+                        <h3>Master's Thesis</h3>
+                        <p class="tenure">July 2023 - May 2024</p>
+                        <p class="laboratory">i-Lab, IISER Bhopal </p>
+                        <p class="supervisor">Supervisor: Dr. Mitradip Bhattacharjee</p>
+                        <p class="thesis">Title : “Self-Powered Cu<u><span class="subscript">2</span></u>O(CuO) Composite Based Vis-NIR Photodetector”</p>
+
+                        
+                    </div>
+
+                    <div class="details-container">
+                        <img src="./assets/experience.png" alt="Experience icon" class="icon">
+                        <h3>Internship</h3>
+                        <p class="tenure">May 2023 - July 2023</p>
+                        <p class="laboratory">Quantum NanoDevice Lab (QNDL), IISER Bhopal </p>
+                        <p class="supervisor">Supervisor: Dr. Kuntal Roy</p>
+                        <p class="thesis">Topic : Characterization of photodiodes and ellipsometric analysis of spin-coated polymer on silicon wafers</p>
+
+                        
+                    </div>
+
+                    <div class="details-container">
+                        <img src="./assets/experience.png" alt="Experience icon" class="icon">
+                        <h3>Bachelor's Thesis</h3>
+                        <p class="tenure">January 2023 - May 2023</p>
+                        <p class="laboratory">Sixth Sense Lab, IISER Bhopal </p>
+                        <p class="supervisor">Supervisor: Dr. Santanu Talukder</p>
+                        <p class="thesis">Title : “MEMS-Based Piezoelectric Ambient Vibration Energy Harvester”</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+        <!-- <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#skills'"> -->
+
+    </section>
+    <section id="skills">
+         <p class="section__text__p1">Explore some of my</p>
+         <h1 class="title"> Skills</h1>
+         <div class="experience-details-container">
+            <div class="about-container">
+                <div class="details-container1">
+                    <h2 class="experience-sub-title">Technical Skills</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>COMSOL</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>OriginPro</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>LTSpice</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>FreeCAD</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>SolidWorks</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>NI LabVIEW</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>EDA Playground</h3>
+                                <p>amateur
+</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="details-container1">
+                    <h2 class="experience-sub-title">Laboratory Skills</h2>
+                    <div class="article-container">
+                        <!-- <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>RLC, Breadboard</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article> -->
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>Digital Multimeter (DMM6500)</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>Sourcemeter (SMU2450)</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>Vector Network Analyzer (VNA)</h3>
+                                <p>amateur
+</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>Function Generator</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>Oscilloscopes (DSO & MSO)</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>LCR meter</h3>
+                                <p>amateur
+</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>Ellipsometry (J.A. Wollam)</h3>
+                                <p>amateur
+</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>Spin Coating (Holmarc)</h3>
+                                <p>amateur
+</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>SLA 3D printing (FormLabs)</h3>
+                                <p>experienced</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="details-container1">
+                    <h2 class="experience-sub-title">Programming Skills</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>Python</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>MATLAB</h3>
+                                <p>academic proficiency</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>C</h3>
+                                <p>amateur
+</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience
+ icon" class="icon">
+                            <div>
+                                <h3>HTML</h3>
+                                <p>amateur
+</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
+                            <div>
+                                <h3>CSS</h3>
+                                <p>amateur
+</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
+                            <div>
+                                <h3>LaTeX</h3>
+                                <p>experienced</p>
+                            </div>
+                        </article>
+                        
+                    </div>
+                </div>
+            </div>
+         </div>
+    </section>
+    <section id="publications">
+    <p class="section__text__p1"> Check My Recent Research Outcomes </p>
+    <h1 class="title">Publications</h1>
+    <div class="publication">
+        <h21>[1] Ultrafast Self-Powered Copper Oxide Composite-Based Vis-NIR Photodetector Probe;</h21>
+        <p1>Amartyaraj Kumar, Shivank Sahu, and Mitradip Bhattacharjee;</p1>
+        <p1> ACS Applied Electronic Materials, 2024, 6 (9), 6457-6465</p1>
+        <p1 class="doi"><strong>DOI:</strong> <a href="https://doi.org/10.1021/acsaelm.4c00940" target="_blank">10.1021/acsaelm.4c00940</a></p1>
+    </div>
+
+    <h1 class="title">Patents</h1>
+    <div class="publication">
+        <h21>[1] A SELF-POWERED UV- NIR PHOTODETECTOR PROBE; </h21>
+        <p1>Mitradip Bhattacharjee, Amartyaraj Kumar, Shivank Sahu;</p1>
+        <p1> IN Patent Application No. 202421055636, 07/2024</p1>
+    </div>
+
+    <div class="publication">
+        <h21>[2] A MULTI-ORGAN THERANOSTIC BODY WEARABLE DEVICE; </h21>
+        <p1>Mitradip Bhattacharjee,Ariba Siddiqui, Subham Das, Amartyaraj Kumar;</p1>
+        <p1> IN Patent Application No. 202421006385, 02/2024</p1>
+    </div>
+</section>
+
+<section id="contact">
+    <p class="section__text__p1"> Get in Touch</p>
+    <h1 class="title"> Contact me</h1>
+    <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+            <img src="./assets/email.png" alt="Email icon" class="icon contac-icon">
+            <p><a href="mailto:amartyaraj19@iiserb.ac.in">Email</a></p>
+        </div>
+    </div>
+</section>
+
+<footer>
+   <p>Copyright &#169; 2024 Amartyaraj Kumar. All Rights Reserved.</p>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>
