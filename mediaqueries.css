@@ -70,6 +70,10 @@
     .text-container {
         text-align: justify;
     }
+
+    .section__text__p1 {
+        margin-top: 3 rem;
+    }
 }
 
 
@@ -144,7 +148,7 @@
     } */
 
     .section__text__p1 {
-        margin-top: 2rem;
+        margin-top: 3rem;
     }
 
 
