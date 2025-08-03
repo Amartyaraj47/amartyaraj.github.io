@@ -209,7 +209,7 @@
             .timeline-container.is-visible {
                 transform: none; /* Ensure it's visible without translation */
             }
-            .timeline-container::after {
+            .timeline-container.left::after, .timeline-container.right::after {
                 left: 11px; /* Position dot on the line */
                 right: auto;
             }
