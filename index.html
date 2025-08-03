@@ -58,12 +58,12 @@
 
         /* Vertical timeline for experience */
         .timeline { position: relative; max-width: 1200px; margin: 0 auto; }
-        .timeline::after { content: ''; position: absolute; width: 3px; background-color: #233554; top: 0; bottom: 0; left: 50%; margin-left: -1.5px; }
-        .timeline-container { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; opacity: 0; transition: opacity 0.6s, transform 0.6s; }
-        .timeline-container.left { left: 0; transform: translateX(-100px); }
-        .timeline-container.right { left: 50%; transform: translateX(100px); }
+        .timeline::after { content: ''; position: absolute; width: 3px; background-color: #233554; top: 0; bottom: 0; left: 50%; margin-left: -1.5px; transition: left 0.3s ease; }
+        .timeline-container { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; opacity: 0; transition: opacity 0.6s, transform 0.6s, width 0.3s ease, left 0.3s ease; }
+        .timeline-container.left { left: 0; transform: translateX(-10px); }
+        .timeline-container.right { left: 50%; transform: translateX(10px); }
         .timeline-container.is-visible { opacity: 1; transform: translateX(0); }
-        .timeline-container::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: #000000; border: 4px solid #64ffda; top: 15px; border-radius: 50%; z-index: 1; }
+        .timeline-container::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: #000000; border: 4px solid #64ffda; top: 15px; border-radius: 50%; z-index: 1; transition: left 0.3s ease, right 0.3s ease; }
         .timeline-container.right::after { left: -10px; }
         .timeline-content { 
             position: relative;
@@ -180,6 +180,41 @@
             100% { box-shadow: 0 0 10px rgba(100, 255, 218, 0.2); }
         }
 
+        /* Mobile-specific optimizations */
+        @media (max-width: 1023px) {
+            /* Hide custom cursor on touch devices / smaller screens and restore default */
+            #cursor-dot, #cursor-outline {
+                display: none;
+            }
+            body {
+                cursor: auto;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            /* Single-column timeline for mobile */
+            .timeline::after {
+                left: 20px; /* Move line to the left */
+                margin-left: 0;
+            }
+            .timeline-container {
+                width: 100%;
+                padding-left: 60px; /* Make space for the line and dot */
+                padding-right: 15px;
+            }
+            .timeline-container.left, .timeline-container.right {
+                left: 0;
+                transform: none; /* Reset desktop positioning */
+            }
+            .timeline-container.is-visible {
+                transform: none; /* Ensure it's visible without translation */
+            }
+            .timeline-container::after {
+                left: 11px; /* Position dot on the line */
+                right: auto;
+            }
+        }
+
     </style>
 </head>
 <body class="leading-normal tracking-normal">
@@ -221,15 +256,13 @@
         <div class="relative z-10">
             <!-- Home Page -->
             <div id="page-home" class="page-content">
-                <section id="hero" class="container mx-auto flex px-40 py-24 md:flex-row flex-col items-center min-h-screen gap-x-0">
-                    <div class="lg:flex-grow md:w-3/5 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                <section id="hero" class="container mx-auto flex px-6 md:px-40 py-24 md:flex-row flex-col-reverse items-center justify-center min-h-screen gap-x-0">
+                    <div class="lg:flex-grow md:w-3/5 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left items-center text-center">
                         <p class="font-mono text-accent mb-4">Hello, I'm</p>
                         <h1 class="title-font sm:text-6xl text-5xl mb-4 font-bold text-gray-100">
                             Amartyaraj Kumar.
                         </h1>
-                        <!-- <h2 id="typing-headline" class="sm:text-5xl text-4xl mb-4 font-bold text-gray-400 h-24 sm:h-36">
-                        </h2> -->
-                        <h2 id="typing-headline" class="sm:text-3xl text-2xl mb-4 text-gray-400 h-24 sm:h-36">
+                        <h2 id="typing-headline" class="sm:text-3xl text-2xl mb-4 text-gray-400 min-h-[7rem] md:min-h-[7rem]">
                         </h2>
                         <p class="mb-8 leading-relaxed max-w-xl">
                             Welcome to my website. I am an aspiring researcher and engineer with a passion for quantum technologies, novel devices, photonic quantum computation, and novel photonic compuation architectures.
@@ -239,7 +272,7 @@
                             <a href="#" data-page="contact" class="hero-button nav-link inline-flex text-accent bg-transparent border border-accent py-3 px-7 focus:outline-none hover:bg-accent hover:bg-opacity-10 rounded text-lg cursor-pointer">Contact Info</a>
                         </div>
                     </div>
-                    <div class="lg:max-w-md lg:w-full md:w-2/5 w-5/6">
+                    <div class="lg:max-w-md lg:w-full md:w-2/5 w-4/5 mb-10 md:mb-0">
                         <img class="object-cover object-center rounded-full shadow-2xl shadow-accent/20" alt="hero" src="./assets/dp.png" onerror="this.onerror=null;this.src='https://placehold.co/720x600/000000/64ffda?text=Error';">
                     </div>
                 </section>
@@ -400,8 +433,8 @@
             <a href="https://orcid.org/0009-0007-9062-6224" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="ai ai-orcid fa-lg"></i></a>
             <a href="https://scholar.google.com/citations?user=DZ2OdWEAAAAJ&hl=en" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="ai ai-google-scholar fa-lg"></i></a>
         </div>
-        <p class="font-mono text-sm text-gray-500">
-            Copyright &#169; 2025 Amartyaraj Kumar. All Rights Reserved | Built using Google Geimini Pro
+        <p class="font-mono text-sm text-gray-500 px-4">
+            Copyright &#169; 2025 Amartyaraj Kumar. All Rights Reserved | Built using Google Gemini
         </p>
     </footer>
 
@@ -418,7 +451,7 @@
      <div class="hidden lg:block fixed bottom-0 right-10 z-10">
         <div class="flex flex-col items-center space-y-20">
             <a href="mailto:amartyaraj47@gmail.com" class="font-mono text-sm writing-mode-vertical-rl text-gray-400 hover:text-accent transform hover:-translate-y-1 transition-all">
-                Amartyaraj Kumar
+                amartyaraj47@gmail.com
             </a>
             <div class="h-24 w-px bg-gray-600"></div>
         </div>
@@ -460,28 +493,35 @@
                 if (currentPage) {
                     currentPage.classList.add('is-transitioning-out');
                 }
-
+                
+                // Animate timeline on academics page
                 if (pageId === 'page-academics') {
                     const timelineItems = document.querySelectorAll('.timeline-container');
-                    timelineItems.forEach((item, index) => {
-                        setTimeout(() => {
-                            item.classList.add('is-visible');
-                        }, index * 200);
-                    });
+                    timelineItems.forEach(item => item.classList.remove('is-visible')); // Reset visibility
+                    setTimeout(() => {
+                        timelineItems.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('is-visible');
+                            }, index * 150);
+                        });
+                    }, 400); // Start after page transition
                 }
+
 
                 setTimeout(() => {
                     if (currentPage) {
                         currentPage.classList.add('hidden');
-                        currentPage.classList.remove('is-transitioning-out');
+                        currentPage.classList.remove('is-transitioning-out', 'is-transitioning-in');
                     }
                     
                     targetPage.classList.remove('hidden');
+                    // Use a micro-timeout to ensure the 'hidden' class is removed before adding the transition class
                     setTimeout(() => {
                         targetPage.classList.add('is-transitioning-in');
                     }, 20);
 
                     currentPage = targetPage;
+                    window.scrollTo(0, 0); // Scroll to top on page change
                 }, 400);
             }
             
@@ -490,12 +530,14 @@
                     e.preventDefault();
                     const pageId = "page-" + link.getAttribute('data-page');
                     showPage(pageId);
+                    // Hide mobile nav after click
                     if (!navContent.classList.contains('hidden')) {
                         navContent.classList.add('hidden');
                     }
                 });
             });
             
+            // Initial page load animation
             setTimeout(() => {
                 if(currentPage) currentPage.classList.add('is-transitioning-in');
             }, 100);
@@ -503,59 +545,69 @@
             navToggle.addEventListener('click', () => navContent.classList.toggle('hidden'));
             
             // --- Custom Cursor ---
-            const cursorDot = document.getElementById('cursor-dot');
-            const cursorOutline = document.getElementById('cursor-outline');
-            window.addEventListener('mousemove', function (e) {
-                const posX = e.clientX;
-                const posY = e.clientY;
-                cursorDot.style.left = `${posX}px`;
-                cursorDot.style.top = `${posY}px`;
-                cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
-                const isHovering = document.elementsFromPoint(posX, posY).some(el => el.matches('a, button, .cursor-pointer'));
-                cursorOutline.classList.toggle('is-hovering', isHovering);
-            });
+            // Only initialize cursor if not on a touch device
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            if (!isTouchDevice) {
+                const cursorDot = document.getElementById('cursor-dot');
+                const cursorOutline = document.getElementById('cursor-outline');
+                
+                window.addEventListener('mousemove', function (e) {
+                    const posX = e.clientX;
+                    const posY = e.clientY;
+                    cursorDot.style.left = `${posX}px`;
+                    cursorDot.style.top = `${posY}px`;
+                    cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+                    
+                    // Check if hovering over interactive elements
+                    const isHovering = document.elementsFromPoint(posX, posY).some(el => 
+                        el.matches('a, button, .cursor-pointer')
+                    );
+                    cursorOutline.classList.toggle('is-hovering', isHovering);
+                });
+            }
+
 
             // --- Typing Animation ---
             const headline = document.getElementById('typing-headline');
-            const textsToType = [
-                
-                "I am a research scholar . . .<br>progressing one photon at a time.",
-                "I chase single photons . . .<br>because catching two is cheating.",
-                "I trap photons . . .<br>and make them do math."
-    
-            ];
-            let textIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
+            if (headline) {
+                const textsToType = [
+                    "I am a research scholar . . .<br>progressing one photon at a time.",
+                    "I chase single photons . . .<br>because catching two is cheating.",
+                    "I trap photons . . .<br>and make them do math."
+                ];
+                let textIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
 
-            function type() {
-                const currentText = textsToType[textIndex];
-                let displayText = '';
+                function type() {
+                    const currentText = textsToType[textIndex];
+                    let displayText = '';
 
-                if (isDeleting) {
-                    displayText = currentText.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    displayText = currentText.substring(0, charIndex + 1);
-                    charIndex++;
+                    if (isDeleting) {
+                        displayText = currentText.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        displayText = currentText.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+
+                    headline.innerHTML = displayText + '<span class="typing-caret">&nbsp;</span>';
+
+                    let typeSpeed = isDeleting ? 50 : 100;
+
+                    if (!isDeleting && charIndex === currentText.length) {
+                        isDeleting = true;
+                        typeSpeed = 2000; // Pause before deleting
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        textIndex = (textIndex + 1) % textsToType.length;
+                        typeSpeed = 500; // Pause before typing next
+                    }
+
+                    setTimeout(type, typeSpeed);
                 }
-
-                headline.innerHTML = displayText + '<span class="typing-caret">&nbsp;</span>';
-
-                let typeSpeed = isDeleting ? 50 : 100;
-
-                if (!isDeleting && charIndex === currentText.length) {
-                    isDeleting = true;
-                    typeSpeed = 2000; // Pause before deleting
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    textIndex = (textIndex + 1) % textsToType.length;
-                    typeSpeed = 500; // Pause before typing next
-                }
-
-                setTimeout(type, typeSpeed);
+                setTimeout(type, 500);
             }
-            setTimeout(type, 500);
 
             // --- Project Modal Logic ---
             const modal = document.getElementById('project-modal');
@@ -749,10 +801,20 @@
             window.addEventListener('resize', resizeCanvas);
 
             window.addEventListener('mousemove', (e) => {
-                mouse.x = e.x;
-                mouse.y = e.y;
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
             });
              window.addEventListener('mouseout', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+            window.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    mouse.x = e.touches[0].clientX;
+                    mouse.y = e.touches[0].clientY;
+                }
+            });
+            window.addEventListener('touchend', () => {
                 mouse.x = null;
                 mouse.y = null;
             });
